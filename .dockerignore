@@ -1,0 +1,10 @@
+.gitignore
+LICENSE
+README.md
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.out
+*.test
