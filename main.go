@@ -171,8 +171,9 @@ func (conf Config) Response(kong *pdk.PDK) {
 	if (err != nil  || strings.Trim(traceId, "") == "") {
 		kong.Log.Warn(err)
 		traceId = uuid.NewString()
-		kong.Response.SetHeader(conf.HeaderName, traceId)
 	}
+	
+	kong.Response.SetHeader(conf.HeaderName, traceId)
 
 	// Gets the request path
 	// It is the path that the client requested to Kong API Gateway
