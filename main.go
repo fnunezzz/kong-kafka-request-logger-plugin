@@ -21,12 +21,10 @@ const DEFAULT_TOPIC_NAME = "kong-kafka-request-logger-plugin"
 const DEFAULT_TRACE_HEADER_NAME = "trace-id"
 
 type requestJsonMessage struct {
-	TraceId  interface{} `json:"trace-id"`
 	Request  interface{} `json:"request"`
 	Date  interface{} `json:"date"`
 }
 type responseJsonMessage struct {
-	TraceId  interface{} `json:"trace-id"`
 	Response  interface{} `json:"response"`
 	Date  interface{} `json:"date"`
 }
@@ -131,7 +129,6 @@ func (conf Config) Access(kong *pdk.PDK) {
 
 	raw := requestJsonMessage{
 		Request: request,
-		TraceId: traceId,
 		Date: timestamp,
 	}
 
@@ -209,7 +206,6 @@ func (conf Config) Response(kong *pdk.PDK) {
 
 	raw := responseJsonMessage{
 		Response: response,
-		TraceId: traceId,
 		Date: timestamp,
 	}
 
